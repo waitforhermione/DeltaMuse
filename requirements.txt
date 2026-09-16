@@ -1,0 +1,40 @@
+# Milestone 1 runtime: piano audio -> note events -> MIDI
+#
+# Python 3.11+ is required.
+#
+#   python -m venv .venv
+#   .venv\Scripts\python -m pip install -r requirements.txt     # Windows
+#   .venv/bin/python   -m pip install -r requirements.txt       # macOS / Linux
+
+# --------------------------------------------------------------------------- #
+# Core audio / music stack
+# --------------------------------------------------------------------------- #
+numpy>=1.26,<2
+scipy>=1.11,<1.14
+librosa>=0.10
+soundfile>=0.12          # bundles libsndfile; decodes WAV/FLAC/OGG/MP3 (>= 1.1)
+pretty_midi>=0.2.10
+mido>=1.3                # independent MIDI reader, used to verify our writer
+
+# --------------------------------------------------------------------------- #
+# Piano AMT backend - TransKun V2
+# --------------------------------------------------------------------------- #
+# Pulls torch + torchaudio (~2 GB on Windows). If ncls fails to build with
+# "Microsoft Visual C++ 14.0 or greater is required", install the prebuilt
+# wheel first and then re-run this file:
+#
+#   pip install ncls==0.0.68
+#
+transkun==2.0.1
+
+# --------------------------------------------------------------------------- #
+# Rendering & GUI
+# --------------------------------------------------------------------------- #
+Pillow>=10               # static score rendering (Milestone 5)
+PySide6>=6.6             # Windows desktop GUI (python main.py gui)
+
+# --------------------------------------------------------------------------- #
+# Development & packaging
+# --------------------------------------------------------------------------- #
+pytest>=7
+pyinstaller>=6.10        # only needed for scripts/build_windows.ps1

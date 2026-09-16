@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "piano-to-harmonica-score"
+version = "0.1.0"
+description = "Turn a pure piano recording into a playable Delta Harmonica static score."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.26,<2",
+    "scipy>=1.11,<1.14",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "pretty_midi>=0.2.10",
+    "mido>=1.3",
+]
+
+[project.optional-dependencies]
+# The piano AMT backend. Heavy: pulls torch + torchaudio.
+transkun = ["transkun==2.0.1"]
+# Static score rendering (used from Milestone 5 on).
+render = ["Pillow>=10"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+piano-score = "app.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+# "samples" lets the opt-in integration test reuse the real sample generator.
+pythonpath = [".", "samples"]
+addopts = "-ra"

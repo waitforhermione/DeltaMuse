@@ -1,0 +1,10 @@
+{
+  "name": "delta_harmonica",
+  "base_pitch": 60,
+  "base_keys": ["Z", "X", "C", "V", "B", "N", "M", ","],
+  "natural_intervals": [0, 2, 4, 5, 7, 9, 11, 12],
+  "octave_offsets": [-1, 0, 1],
+  "semitone_symbol": "#",
+  "octave_up_symbol": "↑",
+  "octave_down_symbol": "↓"
+}
