@@ -40,7 +40,3 @@ python main.py --help
 ```
 
 输入支持 `.mp3` / `.wav` / `.mid` / `.midi`，输出为 PNG 曲谱（可选 score.json）。
-
-## 致谢
-
-本项目使用的 LLM 是 DeepSeek V4.1 Flash & GLM-5.3 Flash
